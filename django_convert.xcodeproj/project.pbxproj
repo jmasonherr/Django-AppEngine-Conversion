@@ -6,10 +6,21 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		DA2A606E18822A6E00A47481 /* conversionmethods.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = conversionmethods.py; path = conversion/conversionmethods.py; sourceTree = "<group>"; };
+		DA2A606F18822A7500A47481 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = __init__.py; path = conversion/__init__.py; sourceTree = "<group>"; };
+		DA2A607018822A7D00A47481 /* modelconversion.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = modelconversion.py; path = conversion/modelconversion.py; sourceTree = "<group>"; };
+		DA2A607118822AB400A47481 /* ndbconversion.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = ndbconversion.py; path = conversion/ndbconversion.py; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		DA2A606318822A2F00A47481 = {
 			isa = PBXGroup;
 			children = (
+				DA2A607118822AB400A47481 /* ndbconversion.py */,
+				DA2A606F18822A7500A47481 /* __init__.py */,
+				DA2A606E18822A6E00A47481 /* conversionmethods.py */,
+				DA2A607018822A7D00A47481 /* modelconversion.py */,
 			);
 			sourceTree = "<group>";
 		};
