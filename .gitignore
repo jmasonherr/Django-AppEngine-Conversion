@@ -21,6 +21,7 @@ build
 *.pyc
 .DS_STORE
 project.pbxproj
+*.xcodeproj
 *.xcuserstate
 *.xcsettings
 *.pbxproj
