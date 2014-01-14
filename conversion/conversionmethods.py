@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+try:
+    import ndb
+except:
+    # ndb not available in some environments when using Django
+    pass
 import json
 import logging
 import datetime
@@ -6,6 +11,8 @@ import datetime
 #from google.appengine.ext import ndb
 
 class BooleanNotRecognizedException(Exception): pass
+class ShouldNotBeSearchedException(Exception):pass
+class ShouldNotBeInRequesException(Exception):pass
 
 booleanPositives = set(['true', 't', 'True', '1', True, 'T', 1, 'on', 'ON'])
 booleanNegatives = set(['NoneType', 'None', None, 0, False, '', 'false', 'False', 'f', 'F', '0', '[]', '{}','()', 'off', 'OFF'])
@@ -18,7 +25,7 @@ timeAMPMFormat = '%I:%M%p'
 datetimeFormat = '%H:%M %Y-%m-%d'
 
 def raiseShouldNotBeInRequest(o):
-    raise ShouldNotBeInRequesException, o
+    raise Exception, '- %s - Should not be in the request' % o
 
 def stringToBool(s):
     if not s:
@@ -32,8 +39,7 @@ def stringToBool(s):
 
 def stringToKey(s):
     return s
-    # commented out for django compatibility
-    #return ndb.Key(urlsafe=s)
+    return ndb.Key(urlsafe=s)
 
 def stringToDate(s):
     format = dateSlashFormat if '/' in s else dateFormat

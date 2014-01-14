@@ -1,3 +1,4 @@
+import decimal
 from django.db import models
 from jsonfield.fields import JSONField
 from google.appengine.ext import ndb
@@ -105,7 +106,7 @@ conversionmap = {
     blobstore.BlobInfo:{
         'toSearch': shouldNotBeSearched ,
         'fromSearch': shouldNotBeSearched,
-        ]'searchClass': search.TextField,
+        'searchClass': search.TextField,
         'fromRequest': raiseShouldNotBeInRequest,
         'toJSON':returnNothing
     },
@@ -277,7 +278,7 @@ conversionmap = {
         'fromSearch': returnSame,
         'searchClass': search.DateField,
         'fromRequest': stringToDatetime,
-        'toJSON':toISO
+        'toJSON':toISO,
     },
 
 ### Django Specific models
@@ -287,9 +288,10 @@ conversionmap = {
         'fromSearch': returnSame,
         'searchClass': search.NumberField,
         'fromRequest': int,
-        'toJSON': returnSame
-    }
-    models.DateField: : {
+        'toJSON': returnSame,
+    },
+
+    models.DateField: {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
@@ -303,7 +305,8 @@ conversionmap = {
         'searchClass': search.NumberField,
         'fromRequest': stringToTime,
         'toJSON':toISO,
-        },
+    },
+
     models.IntegerField: {
         'toSearch': int,
         'fromSearch': returnSame,

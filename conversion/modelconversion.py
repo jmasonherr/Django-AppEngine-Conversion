@@ -19,8 +19,7 @@ from conversionmap import conversionmap as cm
 
 
 class TypeNotHandledException(Exception):pass
-class ShouldNotBeSearchedException(Exception):pass
-class ShouldNotBeInRequesException(Exception):pass
+
 
 
 class DataEncoder(json.JSONEncoder):
