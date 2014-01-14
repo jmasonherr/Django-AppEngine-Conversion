@@ -17,6 +17,9 @@ timeAMPMFormat = '%I:%M%p'
 
 datetimeFormat = '%H:%M %Y-%m-%d'
 
+def raiseShouldNotBeInRequest(o):
+    raise ShouldNotBeInRequesException, o
+
 def stringToBool(s):
     if not s:
         return False
@@ -87,31 +90,23 @@ def convertIntToBool(s):
 def keyToUrlsafe(o):
     return o.urlsafe()
 
-def jsonToObj(j):
-    return json.loads(j)
-
 def geoPtToDict(g):
     return {'latitude':g.lat, 'longitude':g.lon}
 
-def timeToJSONString(t):
-    return t.strftime(timeFormat)
-
-def dateToJSONString(d):
-    return d.strftime(dateFormat)
-
-def datetimeToJSONString(d):
-    return d.strftime(datetimeFormat)
 
 def formatDateForSearch(d):
     """ takes a datetime/date object and returns it formatted for search"""
     return "%d-%d-%d" % (d.year, d.month, d.day)
 
+def convertFk(v):
+    """ If a foreign key is nested, dig it out and return that"""
+    if type(v) == dict:
+        return v.get('id', '') or v.get('pk', '')
+    return v
 
-def categoriesToStrings(s):
-    """ if the request sends categories like '1,4,5', this fixes them into strings"""
-    return ','.join([CATEGORIES[int(i)] for i in s.split(',')])
-
-
+def toISO(obj):
+    return obj.isoformat()
+    
 def fractionToTime(f):  #TODO: move this into javascript to save on computing
     """ convert a fraction into its nearest 5 minute interval, returns datetime.time object"""
     if f > 24:
@@ -125,7 +120,6 @@ def fractionToTimeString(f):
     """ turns a fraction into its nearest 5 minutes and outputs HH:MM"""
     return fractionToTime(f).strftime(timeFormat)
 
-#TODO: figure out whch of these methods is used, remove duplicates
 def convertFloatToTime(f):
     """ duplicate of fraction to time.  probably not used because it relies on time import"""
     if f > 23:

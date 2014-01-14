@@ -1,0 +1,34 @@
+# Python bytecode:
+*.py[co]
+
+
+# Packaging files:
+*.egg*
+
+# Editor temp files:
+*.swp
+*~
+
+# Sphinx docs:
+build
+
+# SQLite3 database files:
+*.db
+
+# Logs:
+*.log
+
+*.pyc
+.DS_STORE
+project.pbxproj
+*.xcuserstate
+*.xcsettings
+*.pbxproj
+*.xc*
+
+
+*.orig
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
