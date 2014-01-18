@@ -142,7 +142,7 @@ conversionmap = {
         'toSearch': convertToString ,
         'fromSearch': convertStringToJSON,
         'searchClass': search.TextField,
-        'fromRequest': json.loads,
+        'fromRequest': returnSame,
         'toJSON': json.loads,
     },
     ndb.PickleProperty: {
@@ -349,7 +349,7 @@ conversionmap = {
         'toSearch': convertToString ,
         'fromSearch': convertStringToJSON,
         'searchClass': search.TextField,
-        'fromRequest': json.loads,
+        'fromRequest': returnSame,
         'toJSON': json.loads,
     },
 
