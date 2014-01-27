@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+kk# -*- coding: utf-8 -*-
 try:
     import ndb
 except:
@@ -7,6 +7,7 @@ except:
 import json
 import logging
 import datetime
+from dateutil import parser
 
 #from google.appengine.ext import ndb
 
@@ -23,6 +24,9 @@ timeFormat = '%H:%M'
 timeAMPMFormat = '%I:%M%p'
 
 datetimeFormat = '%H:%M %Y-%m-%d'
+
+def parseDateString(s):
+    return parser.parse(s, ignoretz=True)
 
 def raiseShouldNotBeInRequest(o):
     raise Exception, '- %s - Should not be in the request' % o
