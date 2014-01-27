@@ -1,4 +1,4 @@
-kk# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 try:
     import ndb
 except:
