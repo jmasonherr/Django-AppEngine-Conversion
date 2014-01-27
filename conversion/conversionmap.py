@@ -6,7 +6,7 @@ from google.appengine.api import search
 from google.appengine.ext import blobstore
 from conversionmethods import *
 from django.utils.safestring import SafeUnicode
-
+import dateutil.parser
 
 
 conversionmap = {
@@ -57,21 +57,21 @@ conversionmap = {
         'toSearch': datetimeToInt ,
         'fromSearch': intToDatetime,
         'searchClass': search.NumberField,
-        'fromRequest': stringToDatetime,
+        'fromRequest': parser.parse,
         'toJSON':toISO
     },
     ndb.DateProperty: {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
-        'fromRequest': stringToDate,
+        'fromRequest': parser.parse,
         'toJSON': toISO
         },
     ndb.TimeProperty: {
         'toSearch': convertTimeToFloat ,
         'fromSearch': convertFloatToTime,
         'searchClass': search.NumberField,
-        'fromRequest': stringToTime,
+        'fromRequest': parser.parse,
         'toJSON':toISO},
     ndb.GeoPtProperty: {
         'toSearch': returnSame ,
@@ -263,21 +263,21 @@ conversionmap = {
         'toSearch': convertTimeToFloat ,
         'fromSearch': convertFloatToTime,
         'searchClass': search.NumberField,
-        'fromRequest': stringToTime,
+        'fromRequest': parser.parse,
         'toJSON':toISO
     },
     datetime.date: {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
-        'fromRequest': stringToDate,
+        'fromRequest': parser.parse,
         'toJSON':toISO
     },
     datetime.datetime: {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
-        'fromRequest': stringToDatetime,
+        'fromRequest': parser.parse,
         'toJSON':toISO,
     },
 
@@ -295,7 +295,7 @@ conversionmap = {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
-        'fromRequest': stringToDate,
+        'fromRequest': parser.parse,
         'toJSON':toISO
     },
 
@@ -303,7 +303,7 @@ conversionmap = {
         'toSearch': convertTimeToFloat ,
         'fromSearch': convertFloatToTime,
         'searchClass': search.NumberField,
-        'fromRequest': stringToTime,
+        'fromRequest': parser.parse,
         'toJSON':toISO,
     },
 
@@ -318,7 +318,7 @@ conversionmap = {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
-        'fromRequest': stringToDatetime,
+        'fromRequest': parser.parse,
         'toJSON':toISO
     },
     models.FloatField: {
