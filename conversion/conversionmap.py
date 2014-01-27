@@ -6,7 +6,7 @@ from google.appengine.api import search
 from google.appengine.ext import blobstore
 from conversionmethods import *
 from django.utils.safestring import SafeUnicode
-import dateutil.parser
+from dateutil import parser
 
 
 conversionmap = {
