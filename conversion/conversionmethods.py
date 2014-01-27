@@ -116,7 +116,15 @@ def convertFk(v):
 
 def toISO(obj):
     return obj.isoformat()
-    
+
+#### LEFT OFF TRYING THESE OUT
+
+def fromISODate(s):
+    return parser.parse(s).date()
+
+def fromISOTime(s):
+    return parser.parse(s).time()
+
 def fractionToTime(f):  #TODO: move this into javascript to save on computing
     """ convert a fraction into its nearest 5 minute interval, returns datetime.time object"""
     if f > 24:

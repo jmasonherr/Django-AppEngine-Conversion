@@ -71,14 +71,15 @@ conversionmap = {
         'fromSearch': convertFloatToTime,
         'searchClass': search.NumberField,
         'fromRequest': parseDateString,
-        'toJSON':toISO},
+        'toJSON':toISO
+    },
     ndb.GeoPtProperty: {
         'toSearch': returnSame ,
         'fromSearch': returnSame,
         'searchClass': search.GeoField,
         'fromRequest': returnSame,
-        'toJSON':geoPtToDict},
-
+        'toJSON':geoPtToDict
+    },
     ndb.GeoPt: {
         'toSearch': returnSame ,
         'fromSearch': returnSame,
@@ -93,7 +94,6 @@ conversionmap = {
         'fromRequest': stringToKey,
         'toJSON':keyToUrlsafe
     },
-
     blobstore.BlobKey:{
         'toSearch': shouldNotBeSearched ,
         'fromSearch': shouldNotBeSearched,
@@ -262,14 +262,14 @@ conversionmap = {
         'toSearch': convertTimeToFloat ,
         'fromSearch': convertFloatToTime,
         'searchClass': search.NumberField,
-        'fromRequest': parseDateString,
+        'fromRequest': fromISOTime,
         'toJSON':toISO
     },
     datetime.date: {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
-        'fromRequest': parseDateString,
+        'fromRequest': fromISODate,
         'toJSON':toISO
     },
     datetime.datetime: {
@@ -294,7 +294,7 @@ conversionmap = {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
-        'fromRequest': parseDateString,
+        'fromRequest': fromISODate,
         'toJSON':toISO
     },
 
@@ -302,7 +302,7 @@ conversionmap = {
         'toSearch': convertTimeToFloat ,
         'fromSearch': convertFloatToTime,
         'searchClass': search.NumberField,
-        'fromRequest': parseDateString,
+        'fromRequest': fromISOTime,
         'toJSON':toISO,
     },
 
