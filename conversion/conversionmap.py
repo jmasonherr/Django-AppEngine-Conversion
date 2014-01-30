@@ -308,7 +308,7 @@ conversionmap = {
 
     models.IntegerField: {
         'toSearch': int,
-        'fromSearch': returnSame,
+        'fromSearch': int,
         'searchClass': search.NumberField,
         'fromRequest': int,
         'toJSON': returnSame,
@@ -322,7 +322,7 @@ conversionmap = {
     },
     models.FloatField: {
         'toSearch': float,
-        'fromSearch': returnSame,
+        'fromSearch': float,
         'searchClass': search.NumberField,
         'fromRequest': float,
         'toJSON': returnSame,
