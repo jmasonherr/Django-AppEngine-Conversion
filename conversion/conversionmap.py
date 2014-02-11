@@ -248,7 +248,7 @@ conversionmap = {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.TextField,
-        'fromRequest': raiseShouldNotBeInRequest,
+        'fromRequest': convertFk,  ## want to take a dictionary and get foreign key because it is nested
         'toJSON': returnSame
     },
     list: {
