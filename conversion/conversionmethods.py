@@ -117,8 +117,6 @@ def convertFk(v):
 def toISO(obj):
     return obj.isoformat()
 
-#### LEFT OFF TRYING THESE OUT
-
 def fromISODate(s):
     return parser.parse(s).date()
 
