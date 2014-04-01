@@ -26,6 +26,12 @@ timeAMPMFormat = '%I:%M%p'
 datetimeFormat = '%H:%M %Y-%m-%d'
 
 def parseDateString(s):
+    return parser.parse(s, ignoretz=True).date()
+
+def parseTimeString(s):
+    return parser.parse(s, ignoretz=True).time()
+
+def parseDateTimeString(s):
     return parser.parse(s, ignoretz=True)
 
 def raiseShouldNotBeInRequest(o):
