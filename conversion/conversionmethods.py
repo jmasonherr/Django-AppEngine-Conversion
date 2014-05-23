@@ -103,6 +103,11 @@ def convertIntToBool(s):
         return False
     return True
 
+def stringToNullBool(s):
+    if s == None or len(s) == 0:
+        return None
+    return stringToBool(s)
+
 def keyToUrlsafe(o):
     return o.urlsafe()
 

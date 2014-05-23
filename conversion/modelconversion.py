@@ -4,21 +4,9 @@ import sys
 import json
 import decimal
 
-from google.appengine.ext import ndb
-from google.appengine.api import search
-from google.appengine.ext import blobstore
-
 from conversionmap import conversionmap as cm
 
-#try:
-#    from google.appengine.ext import ndb
-#except ImportError:
-#    from sweatguru import app_engine_paths
-#    sys.path.extend(app_engine_paths.getTestingPaths())
-
-
-
-class TypeNotHandledException(Exception):pass
+class TypeNotHandledException(Exception): pass
 
 
 

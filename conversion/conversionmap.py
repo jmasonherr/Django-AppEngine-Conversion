@@ -336,7 +336,23 @@ conversionmap = {
         'toJSON': returnSame
     },
 
+    models.NullBooleanField: {
+        'toSearch': convertBoolToInt,
+        'fromSearch': convertIntToBool,
+        'searchClass': search.NumberField,
+        'fromRequest': stringToNullBool,
+        'toJSON': returnSame
+    },
+    
     models.CharField: {
+        'toSearch': returnSame,
+        'fromSearch': returnSame,
+        'searchClass': search.TextField,
+        'fromRequest': returnSame,
+        'toJSON': returnSame
+    },
+
+    models.URLField: {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.TextField,
@@ -372,8 +388,6 @@ conversionmap = {
     
 #    models.BigIntegerField
 #    models.BinaryField
-#    models.BooleanField
-#    models.CharField
 #    models.CommaSeparatedIntegerField
 #    models.EmailField
 #    models.FileField
@@ -381,13 +395,11 @@ conversionmap = {
 #    models.ImageField
 #    models.IPAddressField
 #    models.GenericIPAddressField
-#    models.NullBooleanField
 #    models.PositiveIntegerField
 #    models.PositiveSmallIntegerField
 #    models.SlugField
 #    models.SmallintegerField
 #    models.TextField
-#    models.URLField
 
 
 
