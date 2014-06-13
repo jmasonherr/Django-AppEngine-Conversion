@@ -38,6 +38,8 @@ def raiseShouldNotBeInRequest(o):
     raise Exception, '- %s - Should not be in the request' % o
 
 def stringToBool(s):
+    if type(s) == bool: return s
+
     if not s:
         return False
     elif s in booleanPositives:
@@ -104,6 +106,7 @@ def convertIntToBool(s):
     return True
 
 def stringToNullBool(s):
+    if type(s) == bool: return s
     if s == None or len(s) == 0:
         return None
     return stringToBool(s)
