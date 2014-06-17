@@ -241,7 +241,7 @@ conversionmap = {
         'toSearch': float,
         'fromSearch': returnSame,
         'searchClass': search.NumberField,
-        'fromRequest': float,
+        'fromRequest': decimal.Decimal,
         'toJSON': float
     },
     dict: {
@@ -312,6 +312,14 @@ conversionmap = {
         'searchClass': search.NumberField,
         'fromRequest': int,
         'toJSON': returnSame,
+    },
+
+    models.DecimalField: {
+        'toSearch': float,
+        'fromSearch': returnSame,
+        'searchClass': search.NumberField,
+        'fromRequest': decimal.Decimal,
+        'toJSON': float
     },
     models.DateTimeField: {
         'toSearch': returnSame,
