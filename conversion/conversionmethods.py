@@ -1,15 +1,10 @@
 # -*- coding: utf-8 -*-
-try:
-    import ndb
-except:
-    # ndb not available in some environments when using Django
-    pass
+
 import json
 import logging
 import datetime
 from dateutil import parser
 
-#from google.appengine.ext import ndb
 
 class BooleanNotRecognizedException(Exception): pass
 class ShouldNotBeSearchedException(Exception):pass
@@ -26,6 +21,12 @@ timeAMPMFormat = '%I:%M%p'
 datetimeFormat = '%H:%M %Y-%m-%d'
 
 def parseDateString(s):
+    return parser.parse(s, ignoretz=True).date()
+
+def parseTimeString(s):
+    return parser.parse(s, ignoretz=True).time()
+
+def parseDateTimeString(s):
     return parser.parse(s, ignoretz=True)
 
 def raiseShouldNotBeInRequest(o):
@@ -43,7 +44,6 @@ def stringToBool(s):
 
 def stringToKey(s):
     return s
-    return ndb.Key(urlsafe=s)
 
 def stringToDate(s):
     format = dateSlashFormat if '/' in s else dateFormat
@@ -116,8 +116,6 @@ def convertFk(v):
 
 def toISO(obj):
     return obj.isoformat()
-
-#### LEFT OFF TRYING THESE OUT
 
 def fromISODate(s):
     return parser.parse(s).date()

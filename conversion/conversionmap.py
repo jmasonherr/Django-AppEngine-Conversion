@@ -56,7 +56,7 @@ conversionmap = {
         'toSearch': datetimeToInt ,
         'fromSearch': intToDatetime,
         'searchClass': search.NumberField,
-        'fromRequest': parseDateString,
+        'fromRequest': parseDateTimeString,
         'toJSON':toISO
     },
     ndb.DateProperty: {
@@ -70,7 +70,7 @@ conversionmap = {
         'toSearch': convertTimeToFloat ,
         'fromSearch': convertFloatToTime,
         'searchClass': search.NumberField,
-        'fromRequest': parseDateString,
+        'fromRequest': parseTimeString,
         'toJSON':toISO
     },
     ndb.GeoPtProperty: {
@@ -269,14 +269,14 @@ conversionmap = {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
-        'fromRequest': fromISODate,
+        'fromRequest': parseDateString,
         'toJSON':toISO
     },
     datetime.datetime: {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
-        'fromRequest': parseDateString,
+        'fromRequest': parseDateTimeString,
         'toJSON':toISO,
     },
 
@@ -302,7 +302,7 @@ conversionmap = {
         'toSearch': convertTimeToFloat ,
         'fromSearch': convertFloatToTime,
         'searchClass': search.NumberField,
-        'fromRequest': fromISOTime,
+        'fromRequest': parseTimeString,
         'toJSON':toISO,
     },
 
@@ -325,7 +325,7 @@ conversionmap = {
         'toSearch': returnSame,
         'fromSearch': returnSame,
         'searchClass': search.DateField,
-        'fromRequest': parseDateString,
+        'fromRequest': parseDateTimeString,
         'toJSON':toISO
     },
     models.FloatField: {
