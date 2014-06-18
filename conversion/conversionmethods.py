@@ -1,15 +1,10 @@
 # -*- coding: utf-8 -*-
-try:
-    import ndb
-except:
-    # ndb not available in some environments when using Django
-    pass
+
 import json
 import logging
 import datetime
 from dateutil import parser
 
-#from google.appengine.ext import ndb
 
 class BooleanNotRecognizedException(Exception): pass
 class ShouldNotBeSearchedException(Exception):pass
@@ -51,7 +46,6 @@ def stringToBool(s):
 
 def stringToKey(s):
     return s
-    return ndb.Key(urlsafe=s)
 
 def stringToDate(s):
     format = dateSlashFormat if '/' in s else dateFormat
