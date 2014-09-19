@@ -59,7 +59,7 @@ def stringToDatetime(s):
     return datetime.datetime.time(datetime.datetime.strptime(s, ' '.join([tformat, dformat])))
 
 def stringNumToInt(s):
-    exclude = ['None', 'none', 'false', 'False']
+    exclude = ['None', 'none', 'false', 'False', '']
     if s in exclude:
         return False 
     return int(s)
