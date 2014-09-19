@@ -58,6 +58,12 @@ def stringToDatetime(s):
     tformat = timeAMPMFormat if 'm' in s or 'M' in s else timeFormat
     return datetime.datetime.time(datetime.datetime.strptime(s, ' '.join([tformat, dformat])))
 
+def stringNumToInt(s):
+    exclude = ['None', 'none', 'false', 'False']
+    if s in exclude:
+        return False 
+    return int(s)
+
 def intFromList(s):
     """ convert an array of strings to an array of ints """
     converted = []
