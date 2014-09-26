@@ -26,6 +26,7 @@ class DataEncoder(json.JSONEncoder):
     """ JSON Encoder that takes all of the property conversions into mind when converting data"""
     def default(self, v):
         if v.__class__ in cm:
+            
             return cm[v.__class__]['toJSON'](v) if cm[v.__class__]['toJSON'] else v
         else:
             if hasattr(v, 'urlsafe'):

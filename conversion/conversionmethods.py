@@ -24,6 +24,9 @@ def parseDateString(s):
     return parser.parse(s, ignoretz=True).date()
 
 def parseTimeString(s):
+    logging.error('parsing timeString in conversion')
+    logging.error('this is the string');
+    logging.error(s);
     return parser.parse(s, ignoretz=True).time()
 
 def parseDateTimeString(s):
@@ -129,12 +132,16 @@ def convertFk(v):
     return v
 
 def toISO(obj):
+    logging.error('in TO ISO Format')
+    logging.error('this is value of obj')
+    logging.error(obj)
     return obj.isoformat()
 
 def fromISODate(s):
     return parser.parse(s).date()
 
 def fromISOTime(s):
+    logging.error('from ISO Time happening')
     return parser.parse(s).time()
 
 def fractionToTime(f):  #TODO: move this into javascript to save on computing
