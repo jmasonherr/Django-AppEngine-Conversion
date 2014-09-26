@@ -9,6 +9,7 @@ from google.appengine.api import search
 from google.appengine.ext import blobstore
 
 from conversionmap import conversionmap as cm
+import logging
 
 #try:
 #    from google.appengine.ext import ndb
@@ -25,10 +26,18 @@ class TypeNotHandledException(Exception):pass
 class DataEncoder(json.JSONEncoder):
     """ JSON Encoder that takes all of the property conversions into mind when converting data"""
     def default(self, v):
+
         if v.__class__ in cm:
-            
+            logging.error('this is the class')
+            logging.error(v.__class__)
+            logging.error(hasattr(v, 'start'))
+            logging.error('v class is in conversion map so we are calling to JSON on the value')
             return cm[v.__class__]['toJSON'](v) if cm[v.__class__]['toJSON'] else v
         else:
+            logging.error('the class is not in the conversion maps')
+            logging.error('does the object have attribute of start and time?')
+            logging.error(hasattr(v, 'start'))
+
             if hasattr(v, 'urlsafe'):
                 return v.urlsafe()
             elif hasattr(v, 'key'):
